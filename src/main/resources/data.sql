@@ -1,0 +1,1 @@
+insert ignore into user(`id`,`created_date`,`updated_date`,`first_name`,`last_name`,`username`,`password`,`user_type`) values (1,'2020-07-08 11:13:30.477000','2020-07-08 11:13:30.477000','admin','admin','adminuser','$2a$10$2apLsG.1kOL8Oeyko6xMZuhpGWIQ.zqJMZ22fVzeOwdRuIEGWAIe.','ADMIN');

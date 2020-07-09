@@ -1,0 +1,126 @@
+
+
+.header-site-bg {
+    background: #88e7ef;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+
+.covid-datatable {
+   /* margin: 14px 0px 7px;
+    padding: 5px 9px;*/
+    background: #effeff;
+    height: 440px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.body_main{
+    /*padding: 4rem 1.5rem 3rem;*/
+    margin-top: 0px;
+}
+.covid-cases {
+    padding: 13px;
+    margin: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 10px;
+    box-shadow: 2px 4px 4px 0px #e7e7e7;
+}
+.deceased-cases {
+    color: #7c7474;
+}
+.recovered-cases {
+    color: #3076dc;
+    font-weight: 500;
+}
+.active-cases {
+    color: #74c674;
+    font-weight: 500;
+}
+.total-cases {
+    color: #f75252;
+    font-weight: 500;
+}
+.deceased-cases:hover {
+    background:#dedcdc ;
+    transition: 0.02s;
+}
+.recovered-cases:hover{
+    background:#d4e6ff;
+    transition: 0.02s;
+
+}
+.active-cases:hover {
+    background: #c7f7c7;
+    transition: 0.02s;
+}
+.total-cases:hover{
+    background:#f3d7d7;
+    transition: 0.02s;
+
+}
+.author-web{
+    color: #252561;
+}
+.right-covid-case {
+    position: fixed;
+    height: 67vh;
+    right: 0;
+    top: 167px;
+    background: #ccb5b5;
+    z-index: 1;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
+}
+
+.covid-datatable::-webkit-scrollbar{
+    width: 4px;
+    background: #b4e7ea;
+}
+
+.in-out-msg {
+    display: flex;
+    margin: 10px;
+    justify-content: center;
+    font-size: 12px;
+    color: #5f5f5f;
+    font-weight: 600;
+}
+
+.login-from {
+    padding: 5px;
+    box-shadow: 1px 0px 6px 4px #f5f5f5;
+}
+
+.add-case-frm {
+    padding: 14px;
+    background: #fdf7f700;
+    box-shadow: 1px 0px 6px 4px #f5f5f5;
+}
+
+.newCaseFormRow{
+    margin: 10px 0px;
+}
+.form-group>label{
+    font-family: Arial;
+    font-size: 16px;
+    font-style: italic;
+
+}
+.borders{
+    border: 1px solid;
+    border-radius: 10px;
+    border-color: #e7edf0;
+    box-shadow: 2px 4px 4px 0px #e7e7e7;
+}

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+    <definition name="base" template="/WEB-INF/jsp/layout.jsp">
+        <put-attribute name="header" value="/WEB-INF/jsp/logout/header.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/jsp/footer.jsp"/>
+    </definition>
+
+    <definition name="loggedIn" template="/WEB-INF/jsp/layout.jsp">
+        <put-attribute name="header" value="/WEB-INF/jsp/login/header.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/jsp/footer.jsp"/>
+    </definition>
+
+    <definition name="login" extends="base">
+        <put-attribute name="body" value="/WEB-INF/jsp/login/login.jsp"/>
+    </definition>
+
+    <definition name="registration" extends="base">
+        <put-attribute name="body" value="/WEB-INF/jsp/login/registration.jsp"/>
+    </definition>
+
+    <definition name="dashboard" extends="base">
+        <put-attribute name="header" value="/WEB-INF/jsp/login/header.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/dashboard.jsp"/>
+    </definition>
+
+    <definition name="editCase" extends="dashboard">
+        <put-attribute name="body" value="/WEB-INF/jsp/covidCase/editCase.jsp"/>
+    </definition>
+    <definition name="addNewCase" extends="dashboard">
+        <put-attribute name="body" value="/WEB-INF/jsp/covidCase/addNewCase.jsp"/>
+    </definition>
+    <definition name="successCaseCreation" extends="dashboard">
+        <put-attribute name="body" value="/WEB-INF/jsp/covidCase/successCaseCreation.jsp"/>
+    </definition>
+
+    <definition name="updateCase" extends="dashboard">
+        <put-attribute name="body" value="/WEB-INF/jsp/covidCase/updateCase.jsp"/>
+    </definition>
+
+    <definition name="error" extends="base">
+        <put-attribute name="body" value="/WEB-INF/jsp/error.jsp"/>
+    </definition>
+    <definition name="404" template="/WEB-INF/jsp/404.jsp"></definition>
+
+
+</tiles-definitions>
