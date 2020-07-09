@@ -11,4 +11,6 @@ public interface ICovidCaseService {
     CovidCase getEntity(CovidCaseDTO dto);
 
     CovidCase update(CovidCaseDTO covidCaseDTO);
+
+    void addTestData(int n);
 }

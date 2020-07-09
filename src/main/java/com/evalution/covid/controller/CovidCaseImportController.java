@@ -13,7 +13,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.Date;
 
@@ -39,9 +42,16 @@ public class CovidCaseImportController {
         return "redirect:/dashboard";
     }
 
+    @PreAuthorize("hasAnyAuthority('ADMIN')")
+    @GetMapping("/addtestdata/{records}")
+    public String addTestData(@PathVariable("records") int records) {
+        covidCaseService.addTestData(records);
+        return "redirect:/dashboard";
+    }
+
     @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("/addNewCase")
-    String addCase(Model model) {
+    public String addCase(Model model) {
         CovidCaseDTO covidCaseDTO = new CovidCaseDTO();
         model.addAttribute("covidCase", covidCaseDTO);
         return "addNewCase";
@@ -49,22 +59,22 @@ public class CovidCaseImportController {
 
     @PostMapping("/addNewCase")
     @PreAuthorize("hasAuthority('ADMIN')")
-    String addCasePost(@ModelAttribute("covidCase") CovidCaseDTO covidCaseDTO,Model model) {
+    public String addCasePost(@ModelAttribute("covidCase") CovidCaseDTO covidCaseDTO, Model model) {
         CovidCase covidCase = covidCaseService.saveNewCase(covidCaseDTO);
-        model.addAttribute("patientNumber",covidCase.getPatientnumber());
+        model.addAttribute("patientNumber", covidCase.getPatientnumber());
         return "successCaseCreation";
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("/editCase")
-    String editCase( Model model) {
+    public String editCase(Model model) {
         model.addAttribute("case", new CovidCaseDTO());
         return "editCase";
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")
     @PostMapping("/getCase")
-    String getCase(@ModelAttribute("case") CovidCaseDTO covidCaseDTO, Model model) {
+    public String getCase(@ModelAttribute("case") CovidCaseDTO covidCaseDTO, Model model) {
         final CovidCaseDTO caseDTO = covidCaseService.getCaseById(covidCaseDTO.getPatientnumber());
         model.addAttribute("caseDTO", caseDTO);
         return "updateCase";
@@ -72,7 +82,7 @@ public class CovidCaseImportController {
 
     @PostMapping("/updateCase")
     @PreAuthorize("hasAuthority('ADMIN')")
-    String updateCasePost(@ModelAttribute("covidCase") CovidCaseDTO covidCaseDTO) {
+    public String updateCasePost(@ModelAttribute("covidCase") CovidCaseDTO covidCaseDTO) {
         CovidCase covidCase = covidCaseService.update(covidCaseDTO);
         return "redirect:/dashboard";
     }

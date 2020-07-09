@@ -8,6 +8,7 @@ import com.evalution.covid.service.defitition.ICovidCaseService;
 import com.evalution.covid.service.defitition.IUpdateSummary;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
@@ -156,7 +157,7 @@ public class CovidCaseServiceImpl implements ICovidCaseService {
             covidCaseDTO.setDateannounced(dateFormaterFromForm.format(covidCase.getDateannounced()));
             covidCaseDTO.setStatuschangedate(dateFormaterFromForm.format(covidCase.getStatuschangedate()));
         } catch (Exception e) {
-
+                e.printStackTrace();
         }
         return covidCaseDTO;
     }
@@ -177,6 +178,8 @@ public class CovidCaseServiceImpl implements ICovidCaseService {
         return covidCase;
     }
 
+    @Override
+    @Async
     public void addTestData(int n) {
 
         for (int i = 0; i < n; i++) {
